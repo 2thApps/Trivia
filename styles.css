@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  color: #062a3f;
+}
+
+#answers-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+
+button {
+  padding: 1rem;
+  width: 250px;
+  height: 150px;
+  border: 1px solid #d3d3d3;
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #acc94b;
+}
+
+#progress-bar {
+  width: 500px;
+  height: 20px;
+  background-color: #d3d3d3;
+  margin-bottom: 1rem;
+}
+
+#progress-bar-inner {
+  height: 100%;
+  background-color: #32cd32;
+}
+
+#message {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+#timer {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+#start-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#start-button {
+  margin-top: 1rem;
+  background-color: #acc94b;
+  border: none;
+  color: white;
+}
+
+.explanation {
+  display: none;
+  border: 1px solid #d3d3d3;
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#game-container {
+  width: 450px; /* Set a fixed width for the game container */
+  margin: 0 auto; /* Center the game container */
+}
+
+#answers-container button {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+
