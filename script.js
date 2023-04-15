@@ -230,6 +230,8 @@ function shuffle(array) {
     const correctAnswer = questions[currentQuestionIndex].correct;
     let message = "";
 
+    disableAnswerButtons(true);
+
     if (answer === correctAnswer) {
         button.style.backgroundColor = "green";
         score += 10;
@@ -245,26 +247,25 @@ function shuffle(array) {
     messageElement.textContent = message;
     showExplanation();
     button.disabled = true;
-    // Hide the explanation box only when the user answers the next question
-    const buttons = answersContainer.querySelectorAll("button");
-    buttons.forEach((button) => {
-      button.disabled = true;
-    });
-    if (currentQuestionIndex < 9) {
-      setTimeout(() => {
-        showNextQuestion();
-        buttons.forEach((button) => {
-          button.style.backgroundColor = "white";
-          button.disabled = false;
-        });
-      }, 3000);
+
+    if (currentQuestionIndex < questions.length - 1) {
+        setTimeout(() => {
+            hideExplanation();
+            showNextQuestion();
+            disableAnswerButtons(false);
+        }, 3000);
     } else {
-      setTimeout(() => {
-        showSummary();
-      }, 7000);
+        setTimeout(() => {
+            showSummary();
+        }, 7000);
     }
-  }
-  
+}
+function disableAnswerButtons(disable) {
+  const buttons = answersContainer.querySelectorAll("button");
+  buttons.forEach((button) => {
+      button.disabled = disable;
+  });
+} 
   function showExplanation() {
     explanationElement.textContent = questions[currentQuestionIndex].explanation;
     explanationElement.classList.add("explanation");
