@@ -250,7 +250,7 @@ function shuffle(array) {
     buttons.forEach((button) => {
       button.disabled = true;
     });
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < 9) {
       setTimeout(() => {
         showNextQuestion();
         buttons.forEach((button) => {
@@ -346,7 +346,11 @@ retryButton.addEventListener('click', () => {
     const progressPercentage = (score / (questions.length * 10)) * 100;
     progressBar.style.width = `${progressPercentage}%`;
     progressText.textContent = `Your Score: ${score}`;
-  }
+  
+    const pointCounter = document.getElementById("point-counter-inner");
+    const pointCounterPercentage = (score / (questions.length * 10)) * 100;
+    pointCounter.style.width = `${pointCounterPercentage}%`;
+  }  
 
   answersContainer.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON' && e.target.style.backgroundColor === "green") {
