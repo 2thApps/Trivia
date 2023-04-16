@@ -260,17 +260,13 @@ function shuffle(array) {
         }, 7000);
     }
 }
-function disableAnswerButtons(disable) {
-  const buttons = answersContainer.querySelectorAll("button");
-  buttons.forEach((button) => {
-      button.disabled = disable;
-  });
-} 
-  function showExplanation() {
-    explanationElement.textContent = questions[currentQuestionIndex].explanation;
-    explanationElement.classList.add("explanation");
-    explanationElement.style.display = "block";
-  }
+  
+function showExplanation() {
+  explanationElement.textContent = questions[currentQuestionIndex].explanation;
+  explanationElement.classList.add("explanation");
+  explanationElement.style.display = "block";
+  scoreProgressBar.style.display = "block"; // Add this line
+}
   
   function hideExplanation() {
     explanationElement.style.display = "none";
@@ -347,12 +343,17 @@ retryButton.addEventListener('click', () => {
     const progressPercentage = (score / (questions.length * 10)) * 100;
     progressBar.style.width = `${progressPercentage}%`;
     progressText.textContent = `Your Score: ${score}`;
-  
     const pointCounter = document.getElementById("point-counter-inner");
     const pointCounterPercentage = (score / (questions.length * 10)) * 100;
     pointCounter.style.width = `${pointCounterPercentage}%`;
   }  
-
+  
+  function disableAnswerButtons(disable) {
+    const buttons = answersContainer.querySelectorAll("button");
+    buttons.forEach((button) => {
+      button.disabled = disable;
+    });
+  }
   answersContainer.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON' && e.target.style.backgroundColor === "green") {
       const buttons = answersContainer.querySelectorAll("button");
